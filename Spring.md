@@ -35,3 +35,12 @@ Spring通过refresh()方法对容器进行初始化和资源的载入
 第二个过程是BeanDefinition载入，把定义好的Bean表示成IOC容器的内部数据结构BeanDefinition，通过定义BeanDefinition来管理应用的各种对象及依赖关系，其是容器实现依赖反转功能的核心数据结构
 
 第三个过程是BeanDefinition注册，容器解析得到BeanDefinition后，需要在容器中注册，这由IOC实现BeanDefinitionRegistry接口来实现，注册过程是IOC容器内部维护了一个ConcurrentHasmap来保存得到的BeanDefinition。如果某些Bean设置了lazyinit属性，Bean的依赖注入会在这个过程预先完成，而不需要等到第一次使用Bean的时候才触发。
+
+### 8.Spring MVC运行流程
+1.客户端请求发送到DispatcherServlet
+2.DispatcherServlet发送请求到HandleMapping
+3.HandlerAdatper找到对应Handler
+4.Handler执行对应Controller方法，返回ModelOrView
+5.通过ViewResolver解析视图
+6.渲染视图，将model包装在Response响应返回
+7.返回客户端结果
