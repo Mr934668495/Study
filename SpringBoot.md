@@ -15,6 +15,7 @@ https://mp.weixin.qq.com/s/F_1j-ng49QNlbj04Q9bqFQ
 。判断webApplication是什么类型的
 。设置ApplicationContextInitializer，ApplicationListener，通过加载META-INF/spring.factories中配置的类
 。找到main方法找到启动主类
+
 4.run方法中，做的工作
 
 。StopWatch主要是监控启动过程，统计启动时间，检测应用是否已经启动或者停止。
