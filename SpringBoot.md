@@ -39,3 +39,7 @@ https://mp.weixin.qq.com/s/F_1j-ng49QNlbj04Q9bqFQ
 。afterRefresh(ApplicationRunner,CommandLineRunner接口实现类的启动)
 
 。返回上下文对象
+
+### SpringBoot加载自定义配置文件
+
+@PropertySource（“配置文件名称”）
