@@ -65,27 +65,27 @@ Spring通过refresh()方法对容器进行初始化和资源的载入
         target：
             语法格式：target(包名.接口名）
             应用：为某一个具体的接口实现提供的配置。如 登录的时候需要执行的附属逻辑是比较多的。在不同的业务流程中，附属逻辑也不同。如，电商中，可能在登录的时候需要去执行购物车合并
-            <aop:config>
-　　          <aop:pointcut expression="target(com.bjsxt.aop.TestService)" id="mypoint"/>
-            </aop:config>
+                <aop:config>
+　　              <aop:pointcut expression="target(com.bjsxt.aop.TestService)" id="mypoint"/>
+                </aop:config>
             
         this ：
             语法：this（包名.接口名）
             应用：针对某个具体的代理提供的配置。比target切点粒度细致。因为目标对象可以多实现。
-            <aop:config>
-　　          <aop:pointcut expression="this(com.bjsxt.aop.TestService)" id="mypoint"/>
-            </aop:config>
+                <aop:config>
+　　              <aop:pointcut expression="this(com.bjsxt.aop.TestService)" id="mypoint"/>
+                </aop:config>
             
         within：
             语法： within（包名.*） 代表在包中的任意接口或类型都作为切点
             应用：针对某一个包提供的切点，粒度比target粗糙。如：某包中的所有接口都需要执行某附属逻辑。如 电商平台中的下订单，下订单服务中可能需要特定的逻辑（时间戳校验，库存检查等），这些逻辑，是其他业务线中不需要提供切面的
-            <aop:config>
-　　          <aop:pointcut expression="within (com.bjsxt.aop.*)" id="mypoint"/>
-            </aop:config>
+                <aop:config>
+　　              <aop:pointcut expression="within (com.bjsxt.aop.*)" id="mypoint"/>
+                </aop:config>
             
         args：
             语法： args(类型，类型.....) 代表方法的参数表符合要求的时候，作为切点，参数表是有顺序的
             应用：主要应用在参数校验中。如：登录的时候必须传递两个字符串参数（登录名和密码）。可以使用args来限定。配合这execution实现。如：execution(.*.xxx.*.login(..)) args(String,String)。是使用频率最低的表达式
-            <aop:config>
-　　          <aop:pointcut expression="args (java.lang.String)" id="mypoint"/>
-            </aop:config>
+                <aop:config>
+　　              <aop:pointcut expression="args (java.lang.String)" id="mypoint"/>
+                </aop:config>
