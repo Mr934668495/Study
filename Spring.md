@@ -44,3 +44,11 @@ Spring通过refresh()方法对容器进行初始化和资源的载入
 5.通过ViewResolver解析视图
 6.渲染视图，将model包装在Response响应返回
 7.返回客户端结果
+
+### 9.SpringMVC拦截器实现原理：
+1.新增一个拦截器，继承HanderInterceptor接口，重写preHander，postHander，afterCompletion方法
+2.在mvc的配置文件里面配置
+    <mvc:interceptors>
+        <bean class="com.springmvc.config.SimpleHandlerInterceptor" />
+    </mvc:interceptors>
+3.调用即可
