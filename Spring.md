@@ -1,16 +1,24 @@
 # Spring的一些知识点：
 ### 1.Spring Bean的作用域：通过scope属性
  1.singleton:每次通过IOC容器返回的Bean实例都是同一个Bean实例
+
  2.prototype:每次通过IOC容器返回一个新的Bean实例，有状态的Bean使用
+
  3.reques:适用于http请求环境，每次请求返回一个新的Bean实例
+
  4.session:每一个session一个Bean实例
+
  5.global-session :所有session共享一个Bean实例
 
 ### 2.Spring Bean 的生命周期：
 1.Bean实例的创建
+
 2.为Bean实例设置属性
+
 3.调用Bean的初始化方法
+
 4.应用可以通过IOC容器使用Bean
+
 5.当容器关闭时，调用Bean的销毁方法
 
 ### 3.Spring Bean 的加载过程：
@@ -36,28 +44,10 @@ Spring通过refresh()方法对容器进行初始化和资源的载入
 
 第三个过程是BeanDefinition注册，容器解析得到BeanDefinition后，需要在容器中注册，这由IOC实现BeanDefinitionRegistry接口来实现，注册过程是IOC容器内部维护了一个ConcurrentHasmap来保存得到的BeanDefinition。如果某些Bean设置了lazyinit属性，Bean的依赖注入会在这个过程预先完成，而不需要等到第一次使用Bean的时候才触发。
 
-### 8.Spring MVC运行流程
-1.客户端请求发送到DispatcherServlet
-2.DispatcherServlet发送请求到HandleMapping
-3.HandlerAdatper找到对应Handler
-4.Handler执行对应Controller方法，返回ModelOrView
-5.通过ViewResolver解析视图
-6.渲染视图，将model包装在Response响应返回
-7.返回客户端结果
-
-### 9.SpringMVC拦截器实现原理：
-1.新增一个拦截器，继承HanderInterceptor接口，重写preHander，postHander，afterCompletion方法
-2.在mvc的配置文件里面配置
-    <mvc:interceptors>
-        <bean class="com.springmvc.config.SimpleHandlerInterceptor" />
-    </mvc:interceptors>
-3.调用即可
 
 ### 8.Spring AOP
     切点表达式：
-    <aop:config>
-　　  <aop:pointcut expression="this(com.bjsxt.aop.TestService)" id="mypoint"/>
-    </aop:config>
+    ```<aop:config><aop:pointcut expression="this(com.bjsxt.aop.TestService)" id="mypoint"/></aop:config>```
         execution：
             语法格式： execution(返回类型.包名.类名.方法名(参数表))
             应用：最常用。也是相对最通用。根据方法执行的标准，定义切点 如 事务  日志
