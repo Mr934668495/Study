@@ -86,6 +86,7 @@ Spring通过refresh()方法对容器进行初始化和资源的载入
         args：
             语法： args(类型，类型.....) 代表方法的参数表符合要求的时候，作为切点，参数表是有顺序的
             应用：主要应用在参数校验中。如：登录的时候必须传递两个字符串参数（登录名和密码）。可以使用args来限定。配合这execution实现。如：execution(.*.xxx.*.login(..)) args(String,String)。是使用频率最低的表达式
-            `    <aop:config>
+            ```    <aop:config>
 　　              <aop:pointcut expression="args (java.lang.String)" id="mypoint"/>
-                </aop:config>`
+                </aop:config>
+            ```
